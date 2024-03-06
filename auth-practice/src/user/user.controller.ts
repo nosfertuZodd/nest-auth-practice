@@ -13,8 +13,12 @@ export class UserController {
 findAll(): User[]{
     return this.userService.findAll()
 }
+@Get(':id')
+findOne(@Param('id')id):User{
+    return this.userService.findOne(id)
+}
 
- 
+
 @Put(':id')
 update(@Body() updateUserDto:createUserDto,@Param('id')id ):string{
     return `Updated ${id} : with ${updateUserDto}`
@@ -33,5 +37,8 @@ create(@Body()createUserDto: createUserDto):string{
 }
 
 
-
 }
+
+ 
+
+
